@@ -3,6 +3,7 @@ package com.example.praktikum7.ui.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.praktikum7.data.entity.Mahasiswa
 import com.example.praktikum7.repository.RepositoryMhs
 import com.example.praktikum7.ui.navigation.DestinasiDetail
 import kotlinx.coroutines.flow.SharingStarted
@@ -64,4 +65,14 @@ data class DetailUiState(
 
     val isUiEventNotEmpty: Boolean
         get() = detailUiEvent != MahasiswaEvent()
+}
+fun Mahasiswa.toDetailUiEvent(): MahasiswaEvent{
+    return  MahasiswaEvent(
+        nim = nim,
+        nama = nama,
+        jenisKelamin = jenisKelamin,
+        alamat = alamat,
+        kelas = kelas,
+        angkatan = angkatan
+    )
 }

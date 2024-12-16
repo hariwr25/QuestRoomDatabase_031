@@ -73,8 +73,7 @@ fun InsertMhsView(
             TopAppBar(
                 onBack = onBack,
                 showBackButton = true,
-                judul = "Tambah Mahasiswa",
-                modifier = modifier
+                judul = "Tambah Mahasiswa"
             )
             InsertBodyMhs(
                 uiState = uiState,

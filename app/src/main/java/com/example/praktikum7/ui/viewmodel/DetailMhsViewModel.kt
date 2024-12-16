@@ -22,7 +22,7 @@ class DetailMhsViewModel(
 ) : ViewModel() {
     private val _nim: String = checkNotNull(savedStateHandle[DestinasiDetail.NIM])
 
-    val detailUiEvent: StateFlow<DetailUiState> = repositoryMhs.getMhs(_nim)
+    val detailUiState: StateFlow<DetailUiState> = repositoryMhs.getMhs(_nim)
         .filterNotNull()
         .map {
             DetailUiState(
@@ -52,7 +52,7 @@ class DetailMhsViewModel(
         )
 
     fun deleteMhs() {
-        detailUiEvent.value.detailUiEvent.toMahasiswaEntity().let {
+        detailUiState.value.detailUiEvent.toMahasiswaEntity().let {
             viewModelScope.launch {
                 repositoryMhs.deleteMhs(it)
             }

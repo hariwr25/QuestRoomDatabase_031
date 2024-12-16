@@ -52,10 +52,9 @@ fun HomeMhsView(
     Scaffold(
         topBar = {
             TopAppBar(
-                judul = "Daftar Mahasiswa",
-                showBackButton = false,
                 onBack = { },
-                modifier = modifier
+                showBackButton = false,
+                judul = "Daftar Mahasiswa"
             )
         },
         floatingActionButton = {
